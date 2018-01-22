@@ -4,11 +4,11 @@ body {
   padding-top: 80px;
 }
 
-
-.container-fluid{
-  padding-top: 80px;
+div {
+  padding: 1%;
+  margin: 1%;
 }
 
-.card-separator{
-  padding-top: 2px;
+.container-fluid {
+  padding-top: 80px;
 }

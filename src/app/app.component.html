@@ -1,25 +1,42 @@
 <app-navbar></app-navbar>
 
 <div class="container">
-  <div class="input-group">
-    <input (keyup)="searchTerm$.next($event.target.value)" class="form-control" placeholder="Enter Name/City/Pincode">
-    <div class="input-group-addon">
-      <i class="fa fa-search"></i>
-    </div>
-  </div>
-  <div class="container-fluid">
-    <div class="row">
-      <div *ngFor="let result of results | slice:0:9" class="col-4 card">
-        <img class="card-img-top" src="assets/nature.jpg" alt="Card image cap">
-        <div class="card-block">
-          {{ result.name }} It is a long established fact that a reader will be distracted by the readable content of a page when looking
-          at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
-          opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages
-          and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover
-          many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes
-          on purpose (injected humour and the like).
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="input-group">
+        <input (keyup)="searchTerm$.next($event.target.value)" class="form-control" placeholder="Enter Name/City/Pincode">
+        <div class="input-group-addon">
+          <i class="fa fa-search"></i>
         </div>
       </div>
     </div>
   </div>
 </div>
+<div class="row justify-content-center">
+  <div class=" card " *ngFor="let result of results | slice:0:9 " style="width: 20rem; ">
+    <img class="card-img-top " src="assets/nature.jpg " alt="Card image cap ">
+    <div class="card-block ">
+      <h4 class="card-title ">{{ result.name }}</h4>
+      <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group list-group-flush ">
+      <li class="list-group-item ">Cras justo odio</li>
+      <li class="list-group-item ">Dapibus ac facilisis in</li>
+      <li class="list-group-item ">Vestibulum at eros</li>
+    </ul>
+    <div class="card-block">
+      <a href="# " class="card-link ">Card link</a>
+      <a href="# " class="card-link ">Another link</a>
+    </div>
+  </div>
+</div>
+<!-- <div class="row ">
+    <div *ngFor="let result of results | slice:0:9 " style="width: 20rem; " class="col-2 card ">
+      <img class="card-img-top " src="assets/nature.jpg " alt="Card image cap ">
+      <div class="card-block ">
+        <h4 class="card-title ">{{ result.name }}</h4>
+        <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="# " class="btn btn-primary ">Go somewhere</a>
+      </div>
+    </div>
+  </div> -->
