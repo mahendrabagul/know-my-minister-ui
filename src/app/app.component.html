@@ -1,12 +1,12 @@
 <app-navbar></app-navbar>
 
 <div class="container">
-  <div class="row">
+  <div class="row  justify-content-center">
     <div class="col-sm-12">
       <div class="input-group">
-        <input (keyup)="searchTerm$.next($event.target.value)" class="form-control" placeholder="Enter Name/City/Pincode">
+        <input (keyup)="searchTerm$.next($event.target.value)" class="form-control" placeholder="Enter Minister Name/City/Pincode">
         <div class="input-group-addon">
-          <i class="fa fa-search"></i>
+          <i class="fa fa-search fa-2x"></i>
         </div>
       </div>
     </div>
@@ -30,13 +30,8 @@
     </div>
   </div>
 </div>
-<!-- <div class="row ">
-    <div *ngFor="let result of results | slice:0:9 " style="width: 20rem; " class="col-2 card ">
-      <img class="card-img-top " src="assets/nature.jpg " alt="Card image cap ">
-      <div class="card-block ">
-        <h4 class="card-title ">{{ result.name }}</h4>
-        <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="# " class="btn btn-primary ">Go somewhere</a>
-      </div>
-    </div>
-  </div> -->
+<footer class="footer">
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
