@@ -1,18 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';  // replaces previous Http service
 import { AppComponent } from './app.component';
-import { AppNavbarComponent } from './app-navbar/app-navbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppNavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
-    BrowserModule, HttpModule, NgbModule.forRoot()
+    BrowserModule, HttpClientModule, NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

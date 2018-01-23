@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
@@ -10,7 +11,7 @@ import 'rxjs/add/operator/switchMap';
 export class SearchService {
   baseUrl: string = 'https://api.cdnjs.com/libraries';
   queryUrl: string = '?search=';
-  constructor(private http: Http) { }
+  constructor(private httpClient: HttpClient) { }
 
   search(terms: Observable<string>) {
     return terms.debounceTime(400)
@@ -19,9 +20,8 @@ export class SearchService {
   }
 
   searchEntries(term) {
-    return this.http
-      .get(this.baseUrl + this.queryUrl + term)
-      .map(res => res.json());
+    return this.httpClient
+      .get(this.baseUrl + this.queryUrl + term);
   }
 
 }
