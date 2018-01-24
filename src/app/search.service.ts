@@ -9,8 +9,8 @@ import 'rxjs/add/operator/switchMap';
 
 @Injectable()
 export class SearchService {
-  baseUrl: string = 'https://api.cdnjs.com/libraries';
-  queryUrl: string = '?search=';
+  baseUrl: string = 'http://localhost:1337/minister';
+  queryUrl: string = '?fullName=';
   constructor(private httpClient: HttpClient) { }
 
   search(terms: Observable<string>) {
@@ -21,7 +21,9 @@ export class SearchService {
 
   searchEntries(term) {
     return this.httpClient
-      .get(this.baseUrl + this.queryUrl + term);
+      .get<any[]>(this.baseUrl);
+    // return this.httpClient
+    // .get<any[]>(this.baseUrl + this.queryUrl + term);
   }
 
 }

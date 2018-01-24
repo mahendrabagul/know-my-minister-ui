@@ -11,11 +11,10 @@ import { log } from 'util';
 
 })
 export class AppComponent {
-  results = Object;
+  ministers: any[];
   searchTerm$ = new Subject<string>();
   latitude: number;
   longitude: number;
-
   ngOnInit() {
     this.setCurrentPosition();
     this.searchTerm$.next("{\"longitude\":" + this.longitude + ", \"latitude\":" + this.latitude + "} ");
@@ -24,8 +23,8 @@ export class AppComponent {
     });
   }
   constructor(private searchService: SearchService) {
-    this.searchService.search(this.searchTerm$).subscribe((res) => {
-      // this.results = res.results;
+    this.searchService.search(this.searchTerm$).subscribe((result) => {
+      this.ministers = result;
     });
   }
   private setCurrentPosition() {

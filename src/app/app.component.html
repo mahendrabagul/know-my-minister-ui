@@ -14,20 +14,41 @@
 </div>
 
 <div class="row justify-content-center">
-  <div class=" card " *ngFor="let result of results | slice:0:9 " style="width: 20rem; ">
-    <img class="card-img-top " src="assets/nature.jpg " alt="Card image cap ">
+  <div class=" card " *ngFor="let minister of ministers | slice:0:9 " style="width: 20rem; ">
+    <img class="card-img-top " src={{minister.profileUrl}} alt="Card image cap ">
     <div class="card-block ">
-      <h4 class="card-title ">{{ result.name }}</h4>
-      <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h4 class="card-title ">{{ minister.salutation}}. {{minister.fullName }}</h4>
+      <p class="card-text ">{{minister.brief}}</p>
     </div>
     <ul class="list-group list-group-flush ">
-      <li class="list-group-item ">Cras justo odio</li>
-      <li class="list-group-item ">Dapibus ac facilisis in</li>
-      <li class="list-group-item ">Vestibulum at eros</li>
+      <li class="list-group-item ">
+        <div class="row justify-content-center">
+          <img src={{minister.partyImageUrl}} />&nbsp; {{minister.party}}
+        </div>
+      </li>
+      <li class="list-group-item ">{{minister.born}}</li>
     </ul>
     <div class="card-block">
-      <a href="# " class="card-link ">Card link</a>
-      <a href="# " class="card-link ">Another link</a>
+      <div class="row justify-content-center">
+        <a href={{minister.twitterProfile}} class="card-link ">
+          <i class="fa fa-twitter-square social-icon"></i>
+        </a>
+        <a href={{minister.facebookProfile}} class="card-link ">
+          <i class="fa fa-facebook-official social-icon"></i>
+        </a>
+        <a href={{minister.instagramProfile}} class="card-link ">
+          <i class="fa fa-instagram social-icon"></i>
+        </a>
+        <a href={{minister.website}} class="card-link ">
+          <i class="fa fa-internet-explorer social-icon"></i>
+        </a>
+      </div>
+      <div class="card-block">
+        <div class="row justify-content-center">
+          <a href={{minister.viewMore}} class="card-link ">View more...
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
