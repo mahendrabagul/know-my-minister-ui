@@ -13,7 +13,7 @@ export class SearchService {
   queryUrl: string = '?fullName=';
   constructor(private httpClient: HttpClient) { }
 
-  search(terms: Observable<string>) {
+  searchMinister(terms: Observable<string>) {
     return terms.debounceTime(400)
       .distinctUntilChanged()
       .switchMap(term => this.searchEntries(term));
