@@ -8,6 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { MinisterListComponent } from './minister-list/minister-list.component';
 import { MinisterDetailComponent } from './minister-detail/minister-detail.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { ApiService } from './api.service';
+import { SearchService } from './search.service';
 
 
 @NgModule({
@@ -21,7 +23,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
   imports: [
     BrowserModule, HttpClientModule, NgbModule.forRoot(), AppRoutingModule
   ],
-  providers: [],
+  providers: [ApiService, SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

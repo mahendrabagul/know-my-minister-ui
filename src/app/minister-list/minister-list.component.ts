@@ -6,9 +6,7 @@ import { Minister } from '../minister';
 @Component({
   selector: 'app-minister-list',
   templateUrl: './minister-list.component.html',
-  styleUrls: ['./minister-list.component.css'],
-  providers: [SearchService]
-
+  styleUrls: ['./minister-list.component.css']
 })
 export class MinisterListComponent implements OnInit {
   ministers: Minister[];
@@ -16,14 +14,17 @@ export class MinisterListComponent implements OnInit {
   latitude: number;
   longitude: number;
   ngOnInit() {
-    this.setCurrentPosition();
-    this.searchTerm$.next("{\"longitude\":" + this.longitude + ", \"latitude\":" + this.latitude + "} ");
-    this.searchService.searchMinister(this.searchTerm$).subscribe((res) => {
-      // this.results = res.results;
-    });
+    // this.setCurrentPosition();
+    // this.searchTerm$.next("{\"longitude\":" + this.longitude + ", \"latitude\":" + this.latitude + "} ");
+    // this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
+    //   // this.results = result;
+    // });
+    // this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
+    //   this.ministers = result;
+    // });
   }
   constructor(private searchService: SearchService) {
-    this.searchService.searchMinister(this.searchTerm$).subscribe((result) => {
+    this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
       this.ministers = result;
     });
   }
