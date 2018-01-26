@@ -10,6 +10,8 @@ import { MinisterDetailComponent } from './minister-detail/minister-detail.compo
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { ApiService } from './api.service';
 import { SearchService } from './search.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NavbarService } from './navbar.service';
 
 
 @NgModule({
@@ -18,12 +20,13 @@ import { SearchService } from './search.service';
     NavbarComponent,
     FooterComponent,
     MinisterListComponent,
-    MinisterDetailComponent
+    MinisterDetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, NgbModule.forRoot(), AppRoutingModule
   ],
-  providers: [ApiService, SearchService],
+  providers: [ApiService, SearchService, NavbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

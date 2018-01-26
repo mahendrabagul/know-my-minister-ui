@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavbarService } from '../navbar.service';
+import { NavBar } from '../nav-bar';
 
 @Component({
   selector: 'app-navbar',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  title: string = "KnowMyMinister"
-  constructor() { }
+  navbar: NavBar = new NavBar();
+  constructor(private navbarService: NavbarService) {
+    this.navbarService.getNavBar().subscribe((result) => {
+      this.navbar = result;
+    });
+  }
 
   ngOnInit() {
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
 import { Subject } from 'rxjs/Subject';
 import { Minister } from '../minister';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-minister-list',
@@ -14,14 +15,20 @@ export class MinisterListComponent implements OnInit {
   latitude: number;
   longitude: number;
   ngOnInit() {
-    this.setCurrentPosition();
-    // this.searchTerm$.next("{\"longitude\":" + this.longitude + ", \"latitude\":" + this.latitude + "} ");
-    this.searchTerm$.next("");
-    this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
-      this.ministers = result;
-    });
+    this.route.data.map((data) => data['ministers']).subscribe(
+      (ministers) => {
+        this.ministers = ministers;
+      }
+    );
+    // this.setCurrentPosition();
+    // // this.searchTerm$.next("{\"longitude\":" + this.longitude + ", \"latitude\":" + this.latitude + "} ");
+    // this.searchTerm$.next("");
+    // this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
+    //   this.ministers = result;
+    // });
   }
-  constructor(private searchService: SearchService) {
+  constructor(private searchService: SearchService, private route: ActivatedRoute
+  ) {
     this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
       this.ministers = result;
     });

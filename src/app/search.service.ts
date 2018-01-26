@@ -9,5 +9,7 @@ export class SearchService {
   searchMinisters(terms: Observable<string>): Observable<Minister[]> {
     return this.api.searchMinisters(terms);
   }
-
+  getAllMinisters(): Observable<Minister[]> {
+    return this.api.getAllMinisters();
+  }
 }

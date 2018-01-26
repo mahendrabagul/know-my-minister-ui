@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MinisterListComponent } from '../minister-list/minister-list.component';
 import { MinisterDetailComponent } from '../minister-detail/minister-detail.component';
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { MinistersResolver } from '../ministers-resolver';
 
 const routes: Routes = [
   {
@@ -15,7 +17,10 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: MinisterListComponent
+        component: MinisterListComponent,
+        resolve: {
+          ministers: MinistersResolver
+        }
       },
       {
         path: ':id',
@@ -26,6 +31,9 @@ const routes: Routes = [
   {
     path: 'minister-detail',
     component: MinisterDetailComponent,
+  }, {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
@@ -33,6 +41,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { useHash: true }),
     CommonModule
+  ], providers: [
+    MinistersResolver
   ],
   exports: [
     RouterModule
