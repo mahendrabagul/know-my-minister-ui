@@ -7,8 +7,23 @@ import { MinisterDetailComponent } from '../minister-detail/minister-detail.comp
 const routes: Routes = [
   {
     path: '',
-    component: MinisterListComponent,
-  }, {
+    redirectTo: 'minister-list',
+    pathMatch: 'full'
+  },
+  {
+    path: 'minister-list',
+    children: [
+      {
+        path: '',
+        component: MinisterListComponent
+      },
+      {
+        path: ':id',
+        redirectTo: 'minister-detail'
+      }
+    ]
+  },
+  {
     path: 'minister-detail',
     component: MinisterDetailComponent,
   }

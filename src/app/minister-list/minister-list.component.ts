@@ -14,14 +14,12 @@ export class MinisterListComponent implements OnInit {
   latitude: number;
   longitude: number;
   ngOnInit() {
-    // this.setCurrentPosition();
+    this.setCurrentPosition();
     // this.searchTerm$.next("{\"longitude\":" + this.longitude + ", \"latitude\":" + this.latitude + "} ");
-    // this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
-    //   // this.results = result;
-    // });
-    // this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
-    //   this.ministers = result;
-    // });
+    this.searchTerm$.next("");
+    this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
+      this.ministers = result;
+    });
   }
   constructor(private searchService: SearchService) {
     this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
