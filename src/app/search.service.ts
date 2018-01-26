@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
+import { Minister } from './minister';
 
 @Injectable()
 export class SearchService {
@@ -21,7 +22,7 @@ export class SearchService {
 
   searchEntries(term) {
     return this.httpClient
-      .get<any[]>(this.baseUrl);
+      .get<Minister[]>(this.baseUrl);
     // return this.httpClient
     // .get<any[]>(this.baseUrl + this.queryUrl + term);
   }

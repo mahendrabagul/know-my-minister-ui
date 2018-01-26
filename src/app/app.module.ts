@@ -6,6 +6,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './footer/footer.component';
 import { MinisterListComponent } from './minister-list/minister-list.component';
+import { MinisterDetailComponent } from './minister-detail/minister-detail.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 
 @NgModule({
@@ -13,10 +15,11 @@ import { MinisterListComponent } from './minister-list/minister-list.component';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    MinisterListComponent
+    MinisterListComponent,
+    MinisterDetailComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, NgbModule.forRoot()
+    BrowserModule, HttpClientModule, NgbModule.forRoot(), AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

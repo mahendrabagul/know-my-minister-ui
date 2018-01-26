@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
 import { Subject } from 'rxjs/Subject';
+import { Minister } from '../minister';
 
 @Component({
   selector: 'app-minister-list',
@@ -10,8 +11,7 @@ import { Subject } from 'rxjs/Subject';
 
 })
 export class MinisterListComponent implements OnInit {
-
-  ministers: any[];
+  ministers: Minister[];
   searchTerm$ = new Subject<string>();
   latitude: number;
   longitude: number;
@@ -35,5 +35,4 @@ export class MinisterListComponent implements OnInit {
       });
     }
   }
-
 }
