@@ -26,3 +26,7 @@
 .navbar {
   min-height: 10px !important
 }
+
+.dropdown-menu {
+  margin-top: 10px !important;
+}

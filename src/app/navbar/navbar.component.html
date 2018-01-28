@@ -10,7 +10,7 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Useful Links </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a *ngFor="let usefulLink of navbar.usefulLinks" class="dropdown-item" href={{usefulLink.link}}>{{usefulLink.title}}</a>
+          <a *ngFor="let usefulLink of navbar.usefulLinks" class="dropdown-item" href={{usefulLink.link}}>*{{usefulLink.title}}</a>
         </div>
       </li>
     </ul>
