@@ -7,13 +7,10 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Useful Links </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <div *ngFor="let usefulLink of navbar.usefulLinks">
-            <a class="dropdown-item" href={{usefulLink.link}}>{{usefulLink.title}}</a>
-          </div>
+          <a *ngFor="let usefulLink of navbar.usefulLinks" class="dropdown-item" href={{usefulLink.link}}>{{usefulLink.title}}</a>
         </div>
       </li>
     </ul>
