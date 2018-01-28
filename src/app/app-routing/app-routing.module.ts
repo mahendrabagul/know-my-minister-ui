@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MinisterListComponent } from '../minister-list/minister-list.component';
 import { MinisterDetailComponent } from '../minister-detail/minister-detail.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
-import { MinistersResolver } from '../ministers-resolver';
+import { MinistersResolver } from '../minister-list/ministers-resolver';
 
 const routes: Routes = [
   {

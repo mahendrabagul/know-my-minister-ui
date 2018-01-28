@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { Minister } from './minister';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/throw';
-import { NavBar } from './nav-bar';
+import { Minister } from './minister-list/minister';
+import { NavBar } from './navbar/nav-bar';
 
 const API_URL = environment.apiUrl;
 
@@ -18,7 +18,6 @@ export class ApiService {
   queryUrl: string = '?q=';
   ministerUrl: string = '/minister';
   navbarUrl: string = '/navbar';
-  API_URL1: string = 'http://localhost:1337'
   constructor(private httpClient: HttpClient) { }
   searchMinisters(terms: Observable<string>) {
     return terms.debounceTime(400)
@@ -29,11 +28,11 @@ export class ApiService {
     // return this.httpClient
     //   .get<Minister[]>(API_URL + "/minister").catch(this.handleError);
     return this.httpClient
-      .get<Minister[]>(this.API_URL1 + this.ministerUrl + this.queryUrl + term);
+      .get<Minister[]>(API_URL + this.ministerUrl + this.queryUrl + term);
   }
   getAllMinisters() {
     return this.httpClient
-      .get<Minister[]>(this.API_URL1 + this.ministerUrl);
+      .get<Minister[]>(API_URL + this.ministerUrl);
   }
   getNavbar() {
     return this.httpClient

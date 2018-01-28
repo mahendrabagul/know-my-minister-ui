@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Minister } from './minister';
-import { ApiService } from './api.service';
 import { Observable } from 'rxjs/Observable';
+import { ApiService } from '../api.service';
 
 @Injectable()
 export class SearchService {

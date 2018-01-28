@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchService } from '../search.service';
 import { Subject } from 'rxjs/Subject';
-import { Minister } from '../minister';
 import { ActivatedRoute } from '@angular/router';
+import { Minister } from './minister';
+import { SearchService } from './search.service';
 
 @Component({
   selector: 'app-minister-list',
