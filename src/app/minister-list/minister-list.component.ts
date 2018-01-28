@@ -35,7 +35,6 @@ export class MinisterListComponent implements OnInit {
         let request = {
           latLng: latlng
         };
-
         geocoder.geocode(request, (results, status) => {
           if (status == google.maps.GeocoderStatus.OK) {
             if (results[0] != null) {
