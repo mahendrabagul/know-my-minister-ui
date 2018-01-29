@@ -11,6 +11,18 @@
       </div>
     </div>
   </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12">
+        <!-- <button *ngFor="let geographicalArea of geographicalAreas " type="button" class="btn btn-info">{{geographicalArea}}</button> -->
+        <ul>
+          <li *ngFor="let geographicalArea of geographicalAreas">
+            {{ geographicalArea }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
   <div class="row justify-content-center">
     <div class=" card " *ngFor="let minister of ministers | slice:0:9 " style="width: 20rem; ">
       <img class="card-img-top " src={{minister.profileUrl}} alt="Card image cap ">
