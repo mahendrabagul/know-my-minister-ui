@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-minister-detail',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./minister-detail.component.css']
 })
 export class MinisterDetailComponent implements OnInit {
-
-  constructor() { }
+  id: number;
+  constructor(private _activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.id = this._activeRoute.snapshot.params['id'];
   }
-
 }

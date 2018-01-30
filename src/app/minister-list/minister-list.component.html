@@ -15,16 +15,15 @@
     <div class="row justify-content-center">
       <div class="col-sm-12">
         <!-- <button *ngFor="let geographicalArea of geographicalAreas " type="button" class="btn btn-info">{{geographicalArea}}</button> -->
-        <ul>
-          <li *ngFor="let geographicalArea of geographicalAreas">
-            {{ geographicalArea }}
+        <!-- <ul>
+          <li *ngFor="let geographicalArea of locations;let i = index"> {{geographicalArea}}
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </div>
-  <div class="row justify-content-center">
-    <div class=" card " *ngFor="let minister of ministers | slice:0:9 " style="width: 20rem; ">
+  <div class="row justify-content-center" *ngIf='ministers && ministers.length > 0'>
+    <div class=" card " *ngFor="let minister of ministers | slice:0:9 " style="width: 20rem;">
       <img class="card-img-top " src={{minister.profileUrl}} alt="Card image cap ">
       <div class="card-block ">
         <h4 class="card-title ">{{ minister.salutation}}. {{minister.fullName }}</h4>
@@ -58,8 +57,10 @@
         </div>
         <div class="card-block">
           <div class="row justify-content-center">
-            <a href="#" class="card-link ">View more...
+            <a class="card-link" [routerLink]="['/minister-detail',minister.id]">
+              <u>View more</u>
             </a>
+            <!-- <button [routerLink]="['/minister-detail',minister.id]" type="button" class="btn btn-info">View ore</button> -->
           </div>
         </div>
       </div>
