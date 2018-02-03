@@ -1,4 +1,5 @@
 export class Minister {
+    id: string = '';
     profileUrl: string = '';
     partyImageUrl: string = '';
     salutation: string = '';

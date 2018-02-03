@@ -61,11 +61,11 @@ export class MinisterListComponent implements OnInit {
     }
   }
   ngOnInit() {
-    this.getGeoLocation();
-    console.log(this.geographicalAreas);
     this.route.data.map((data) => data['ministers']).subscribe(
       (ministers) => {
         this.ministers = ministers;
+        this.getGeoLocation();
+        console.log(this.geographicalAreas);
       }
     );
   }

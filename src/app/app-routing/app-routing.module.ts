@@ -29,9 +29,10 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'minister-detail',
+    path: 'minister-detail/:id',
     component: MinisterDetailComponent,
-  }, {
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }

@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class=" card " *ngFor="let minister of ministers | slice:0:9" style="width: 20rem;">
+    <div class=" card " *ngFor="let minister of ministers | slice:0:9 " style="width: 20rem;">
       <img class="card-img-top" src={{minister.profileUrl}} alt="Card image cap">
       <div class="card-block">
         <h4 class="card-title">{{ minister.salutation}}. {{minister.fullName }}</h4>
@@ -53,8 +53,10 @@
         </div>
         <div class="card-block">
           <div class="row justify-content-center">
-            <a href="#" class="card-link ">View more...
+            <a class="card-link" [routerLink]="['/minister-detail',minister.id]">
+              <u>View more</u>
             </a>
+            <!-- <button [routerLink]="['/minister-detail',minister.id]" type="button" class="btn btn-info">View ore</button> -->
           </div>
         </div>
       </div>
