@@ -65,9 +65,14 @@ export class MinisterListComponent implements OnInit {
       (ministers) => {
         this.ministers = ministers;
         this.getGeoLocation();
-        console.log(this.geographicalAreas);
       }
     );
+  }
+  myEvent(searchTerm) {
+    this.searchTerm$.next(searchTerm);
+    this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
+      this.ministers = result;
+    });
   }
   constructor(private searchService: SearchService, private geoService: GeoService, private route: ActivatedRoute) {
     this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
