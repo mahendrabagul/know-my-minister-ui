@@ -5,12 +5,12 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item dropdown">
+      <ul class="navbar-nav">
+          <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Useful Links </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a *ngFor="let usefulLink of navbar.usefulLinks" class="dropdown-item" href={{usefulLink.link}}>*{{usefulLink.title}}</a>
+          <a *ngFor="let usefulLink of navbar.usefulLinks" class="text-primary dropdown-item" href={{usefulLink.link}}>*{{usefulLink.title}}</a>
         </div>
       </li>
     </ul>

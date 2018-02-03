@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NavbarService } from './navbar/navbar.service';
 import { SearchService } from './minister-list/search.service';
 import { GeolocationService } from './geolocation.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { GeolocationService } from './geolocation.service';
     MinisterDetailComponent,
     PageNotFoundComponent
   ],
-  imports: [
+  imports: [NgbModule.forRoot(),
     BrowserModule, HttpClientModule, AppRoutingModule
   ],
   providers: [ApiService, SearchService, NavbarService, GeolocationService],
