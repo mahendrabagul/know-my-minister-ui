@@ -11,7 +11,7 @@ import { ApiService } from './api.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavbarService } from './navbar/navbar.service';
 import { SearchService } from './minister-list/search.service';
-import { GeoService } from './geo.service';
+import { GeolocationService } from './geolocation.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { GeoService } from './geo.service';
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule
   ],
-  providers: [ApiService, SearchService, NavbarService, GeoService],
+  providers: [ApiService, SearchService, NavbarService, GeolocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
