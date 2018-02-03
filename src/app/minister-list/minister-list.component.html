@@ -11,48 +11,43 @@
       </div>
     </div>
   </div>
-  <div class="container">
+  <div class="container text-center">
     <div class="row justify-content-center">
       <div class="col-sm-12">
-        <!-- <button *ngFor="let geographicalArea of geographicalAreas " type="button" class="btn btn-info">{{geographicalArea}}</button> -->
-        <ul>
-          <li *ngFor="let geographicalArea of geographicalAreas">
-            {{ geographicalArea }}
-          </li>
-        </ul>
+        <button *ngFor="let geographicalArea of geographicalAreas" type="button" class="btn btn-info" style="margin:2px">{{geographicalArea}}</button>
       </div>
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class=" card " *ngFor="let minister of ministers | slice:0:9 " style="width: 20rem; ">
-      <img class="card-img-top " src={{minister.profileUrl}} alt="Card image cap ">
-      <div class="card-block ">
-        <h4 class="card-title ">{{ minister.salutation}}. {{minister.fullName }}</h4>
-        <p class="card-text ">{{minister.brief}}</p>
+    <div class=" card " *ngFor="let minister of ministers | slice:0:9" style="width: 20rem;">
+      <img class="card-img-top" src={{minister.profileUrl}} alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">{{ minister.salutation}}. {{minister.fullName }}</h4>
+        <p class="card-text">{{minister.brief}}</p>
       </div>
-      <ul class="list-group list-group-flush ">
+      <ul class="list-group list-group-flush">
         <li class="list-group-item ">
           <div class="row justify-content-center">
             <img src={{minister.partyImageUrl}} />&nbsp; {{minister.party}}
           </div>
         </li>
-        <li class="list-group-item ">
+        <li class="list-group-item">
           <div class="row justify-content-center">
             {{minister.born}}</div>
         </li>
       </ul>
       <div class="card-block">
         <div class="row justify-content-center">
-          <a href={{minister.twitterProfile}} class="card-link ">
+          <a href={{minister.twitterProfile}} class="card-link">
             <i class="fa fa-twitter-square social-icon"></i>
           </a>
-          <a href={{minister.facebookProfile}} class="card-link ">
+          <a href={{minister.facebookProfile}} class="card-link">
             <i class="fa fa-facebook-official social-icon"></i>
           </a>
-          <a href={{minister.instagramProfile}} class="card-link ">
+          <a href={{minister.instagramProfile}} class="card-link">
             <i class="fa fa-instagram social-icon"></i>
           </a>
-          <a href={{minister.website}} class="card-link ">
+          <a href={{minister.website}} class="card-link">
             <i class="fa fa-internet-explorer social-icon"></i>
           </a>
         </div>
