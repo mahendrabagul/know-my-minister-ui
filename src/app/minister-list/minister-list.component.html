@@ -9,17 +9,17 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="input-group">
-      <div class="container text-center">
-        <ng-container *ngIf="showLocations">
-          <button *ngFor="let geographicalArea of geographicalAreas" type="button" class="btn btn-info" style="margin:2px" (click)="getLocationResults(geographicalArea)">
-            {{geographicalArea}}</button>
-        </ng-container>
-        <button type="button" class="btn btn-info" style="margin:2px" (click)="getLocations()">
-          {{buttonShowLocations}}</button>
+      <div class="col-sm-12">
+        <div class="input-group">
+          <div class="container text-center">
+            <ng-container *ngIf="showLocations">
+              <button *ngFor="let geographicalArea of geographicalAreas" type="button" class="btn btn-info" style="margin:2px" (click)="getLocationResults(geographicalArea)">
+                {{geographicalArea}}</button>
+            </ng-container>
+            <button type="button" class="btn btn-info" style="margin:2px" (click)="getLocations()">
+              {{buttonShowLocations}}</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

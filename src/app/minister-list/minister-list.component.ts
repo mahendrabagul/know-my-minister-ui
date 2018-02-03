@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Minister } from './minister';
 import { SearchService } from './search.service';
 import { CurrentLocation } from './currrent-location';
-
 import { GeolocationService } from '../geolocation.service';
 declare var google: any;
 
@@ -43,11 +42,12 @@ export class MinisterListComponent implements OnInit {
   }
   getLocationResults(searchTerm) {
     this.searchTerm$.next(searchTerm);
-    this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
-      this.ministers = result;
-    });
+    this.loadMinisters();
   }
   constructor(private searchService: SearchService, private geolocationService: GeolocationService, private route: ActivatedRoute) {
+    this.loadMinisters();
+  }
+  loadMinisters() {
     this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
       this.ministers = result;
     });
