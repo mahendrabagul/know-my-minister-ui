@@ -20,6 +20,9 @@ export class MinisterListComponent implements OnInit {
   searchTerm$ = new Subject<string>();
   latitude: number;
   longitude: number;
+  showLocationResults: boolean = false;
+  buttonLocationResults: any = 'Get My Location Results';
+
   private locations: CurrentLocation[];
   geographicalAreas: any[] = [];
   public getGeoLocation() {
@@ -68,7 +71,12 @@ export class MinisterListComponent implements OnInit {
       }
     );
   }
-  myEvent(searchTerm) {
+  getLocationResults(searchTerm) {
+    this.showLocationResults = !this.showLocationResults;
+    if (this.showLocationResults)
+      this.buttonLocationResults = "Clear My Location Results";
+    else
+      this.buttonLocationResults = "Get My Location Results";
     this.searchTerm$.next(searchTerm);
     this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
       this.ministers = result;
