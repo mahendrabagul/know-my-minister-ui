@@ -38,6 +38,10 @@ export class ApiService {
     return this.httpClient
       .get<NavBar>(API_URL + this.navbarUrl);
   }
+  getMinisterDetails(id) {
+    return this.httpClient
+      .get<Minister>(API_URL + this.ministerUrl + "/" + id);
+  }
   private handleError(error: Response | any) {
     console.error('ApiService::handleError', error);
     return Observable.throw(error);

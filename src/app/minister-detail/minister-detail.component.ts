@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MinisterDetailService } from './minister-detail.service';
+import { Minister } from '../minister-list/minister';
 
 @Component({
   selector: 'app-minister-detail',
@@ -8,9 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MinisterDetailComponent implements OnInit {
   id: number;
-  constructor(private _activeRoute: ActivatedRoute) { }
+  minister: Minister = new Minister();
+  constructor(private ministerDetailService: MinisterDetailService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.id = this._activeRoute.snapshot.params['id'];
+    this.id = this.activatedRoute.snapshot.params['id'];
+    this.loadMinisterDetails();
+  }
+
+  loadMinisterDetails() {
+    this.ministerDetailService.getMinisterDetails(this.id).subscribe((result) => {
+      this.minister = result;
+    });
   }
 }

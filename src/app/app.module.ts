@@ -10,9 +10,10 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { ApiService } from './api.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavbarService } from './navbar/navbar.service';
-import { SearchService } from './minister-list/search.service';
+import { MinisterListService } from './minister-list/minister-list.service';
 import { GeolocationService } from './geolocation.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MinisterDetailService } from './minister-detail/minister-detail.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [NgbModule.forRoot(),
     BrowserModule, HttpClientModule, AppRoutingModule
   ],
-  providers: [ApiService, SearchService, NavbarService, GeolocationService],
+  providers: [MinisterDetailService, ApiService, MinisterListService, NavbarService, GeolocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

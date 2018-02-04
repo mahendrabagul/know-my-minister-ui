@@ -1,13 +1,29 @@
 <main role="main">
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Album example</h1>
-      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but
-        not too short so folks don't simply skip over it entirely.</p>
-      <p>
-        <a href="#" class="btn btn-primary my-2">Main call to action</a>
-        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-      </p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <img class="card-img-top" src={{minister.profileUrl}} alt="Card image cap">
+      </div>
+      <div class="col-sm">
+        <h1 class="jumbotron-heading">{{minister.fullName}}</h1>
+        <p class="lead text-muted">{{minister.brief}}</p>
+        <div class="row justify-content-center">
+          <a href={{minister.twitterProfile}} class="card-link">
+            <i class="fa fa-twitter-square social-icon fa-2x"></i>
+          </a>
+          <a href={{minister.facebookProfile}} class="card-link">
+            <i class="fa fa-facebook-official social-icon fa-2x"></i>
+          </a>
+          <a href={{minister.instagramProfile}} class="card-link">
+            <i class="fa fa-instagram social-icon fa-2x"></i>
+          </a>
+          <a href={{minister.website}} class="card-link">
+            <i class="fa fa-internet-explorer social-icon fa-2x"></i>
+          </a>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+  <div class="container">
+  </div>
 </main>

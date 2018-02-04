@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { ActivatedRoute } from '@angular/router';
 import { Minister } from './minister';
-import { SearchService } from './search.service';
-import { CurrentLocation } from './currrent-location';
+import { MinisterListService } from './minister-list.service';
 import { GeolocationService } from '../geolocation.service';
 declare var google: any;
 
@@ -19,17 +18,23 @@ export class MinisterListComponent implements OnInit {
   buttonShowLocations: any = 'Get My Location Results';
   geographicalAreas: string[] = [];
 
+  constructor(private ministerListService: MinisterListService, private geolocationService: GeolocationService, private activatedRoute: ActivatedRoute) {
+    this.loadMinisters();
+  }
+
   ngOnInit() {
-    this.route.data.map((data) => data['ministers']).subscribe(
+    this.activatedRoute.data.map((data) => data['ministers']).subscribe(
       (ministers) => {
         this.ministers = ministers;
         this.geographicalAreas = this.geolocationService.getGeoLocation();
       }
     );
   }
+
   isResultEmpty() {
     return this.ministers && this.ministers.length < 1
   }
+
   getLocations() {
     this.showLocations = !this.showLocations;
     if (this.showLocations) {
@@ -40,15 +45,14 @@ export class MinisterListComponent implements OnInit {
       this.buttonShowLocations = "Get My Location Results";
     }
   }
+
   getLocationResults(searchTerm) {
     this.searchTerm$.next(searchTerm);
     this.loadMinisters();
   }
-  constructor(private searchService: SearchService, private geolocationService: GeolocationService, private route: ActivatedRoute) {
-    this.loadMinisters();
-  }
+
   loadMinisters() {
-    this.searchService.searchMinisters(this.searchTerm$).subscribe((result) => {
+    this.ministerListService.searchMinisters(this.searchTerm$).subscribe((result) => {
       this.ministers = result;
     });
   }

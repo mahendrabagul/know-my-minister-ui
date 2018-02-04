@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { ApiService } from '../api.service';
 
 @Injectable()
-export class SearchService {
+export class MinisterListService {
   constructor(private api: ApiService) { }
   searchMinisters(terms: Observable<string>): Observable<Minister[]> {
     return this.api.searchMinisters(terms);
