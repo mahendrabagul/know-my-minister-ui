@@ -1,11 +1,11 @@
-<main role="main">
+<div class="outer-container" style="background-color: rgb(227, 242, 252)">
   <div class="container">
     <div class="row">
-      <div class="col-sm">
-        <img class="card-img-top" src={{minister.profileUrl}} alt="Card image cap">
+      <div class="col-lg-4">
+        <img src={{minister.profileUrl}}>
       </div>
-      <div class="col-sm">
-        <h1 class="jumbotron-heading">{{minister.fullName}}</h1>
+      <div class="col-lg-8">
+        <h1 class="jumbotron-heading">{{minister.salutation}}. {{minister.fullName}}</h1>
         <p class="lead text-muted">{{minister.brief}}</p>
         <div class="row justify-content-center">
           <a href={{minister.twitterProfile}} class="card-link">
@@ -24,6 +24,4 @@
       </div>
     </div>
   </div>
-  <div class="container">
-  </div>
-</main>
+</div>

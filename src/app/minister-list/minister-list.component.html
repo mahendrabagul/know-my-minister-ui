@@ -2,16 +2,20 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-sm-12">
-        <div class="input-group">
+        <div class="input-group input-group-lg">
           <input (keyup)="searchTerm$.next($event.target.value)" class="form-control" placeholder="Enter Minister Name/City/Pincode">
           <div class="input-group-addon">
-            <i class="fa fa-search fa-2x"></i>
+            <i class="fa fa-search fa-3x"></i>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="container text-center">
+    <div class="row justify-content-center">
       <div class="col-sm-12">
         <div class="input-group">
-          <div class="container text-center">
+          <div class="container div-special">
             <ng-container *ngIf="showLocations">
               <button *ngFor="let geographicalArea of geographicalAreas" type="button" class="btn btn-info" style="margin:2px" (click)="getLocationResults(geographicalArea)">
                 {{geographicalArea}}</button>
@@ -21,17 +25,19 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-12" *ngIf='isResultEmpty()'>
-        <div class="container text-center">
-          <div class="container">No Minister found!!!</div>
-        </div>
-      </div>
+    </div>
+  </div>
+
+  <hr style="height:3px;border:none;color:rgb(93, 93, 93);background-color:rgb(118, 119, 119);" />
+  <div class="col-sm-12" *ngIf='isResultEmpty()'>
+    <div class="container text-center">
+      <div class="container">No Minister found!!!</div>
     </div>
   </div>
   <div class="row justify-content-center" *ngIf='!isResultEmpty()'>
-    <div class="card" *ngFor="let minister of ministers | slice:0:9 " style="width: 20rem;">
+    <div class="card div-special" *ngFor="let minister of ministers | slice:0:9 " style="width: 20rem;">
       <img class="card-img-top" src={{minister.profileUrl}} alt="Card image cap">
-      <div class="card-block">
+      <div class="card-block div-special">
         <h4 class="card-title">{{ minister.salutation}}. {{minister.fullName }}</h4>
         <p class="card-text">{{minister.brief}}</p>
       </div>
@@ -46,7 +52,7 @@
             {{minister.born}}</div>
         </li>
       </ul>
-      <div class="card-block">
+      <div class="card-block div-special">
         <div class="row justify-content-center">
           <a href={{minister.twitterProfile}} class="card-link">
             <i class="fa fa-twitter-square social-icon"></i>
@@ -71,4 +77,6 @@
       </div>
     </div>
   </div>
+  <hr style="height:3px;border:none;color:rgb(93, 93, 93);background-color:rgb(118, 119, 119);" />
+
 </div>

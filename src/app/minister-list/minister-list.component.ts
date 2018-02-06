@@ -15,7 +15,7 @@ export class MinisterListComponent implements OnInit {
   ministers: Minister[];
   searchTerm$ = new Subject<string>();
   showLocations: boolean = false;
-  buttonShowLocations: any = 'Get My Location Results';
+  buttonShowLocations: any = 'Get Ministers by my Location';
   geographicalAreas: string[] = [];
 
   constructor(private ministerListService: MinisterListService, private geolocationService: GeolocationService, private activatedRoute: ActivatedRoute) {
@@ -42,7 +42,7 @@ export class MinisterListComponent implements OnInit {
     }
     else {
       this.ministers = [];
-      this.buttonShowLocations = "Get My Location Results";
+      this.buttonShowLocations = "Get Ministers by my Location";
     }
   }
 

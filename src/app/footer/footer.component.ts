@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
   twitterFollowUrl: string = "https://twitter.com/hsrsmatjbagul?ref_src=twsrc%5Etfw";
   facebookShareUrl: string = "https://www.facebook.com/knowmyminister";
+  whatsAppShareUrl: string = "whatsapp://send?text=http://www.knowmyminister.com";
   constructor() { }
 
   ngOnInit() {
