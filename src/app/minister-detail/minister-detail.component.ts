@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MinisterDetailService } from './minister-detail.service';
 import { Minister } from '../minister-list/minister';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'app-minister-detail',
@@ -12,10 +13,13 @@ export class MinisterDetailComponent implements OnInit {
   id: number;
   minister: Minister = new Minister();
   videoUrl: string = "http://localhost:1337/assets/videos/indian.mp4";
-  speechUrl = "https://www.youtube.com/embed/8Z72UenFOrAdsds?autoplay=1";
+  speechUrl: string = "http://www.youtube.com/embed/8Z72UenFOrAs?autoplay=1";
 
-  constructor(private ministerDetailService: MinisterDetailService, private activatedRoute: ActivatedRoute) { }
+  constructor(private sanitizer: DomSanitizer, private ministerDetailService: MinisterDetailService, private activatedRoute: ActivatedRoute) { }
 
+  getSpeechUrl() {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.speechUrl);
+  }
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.loadMinisterDetails();
@@ -23,11 +27,11 @@ export class MinisterDetailComponent implements OnInit {
 
   getCurrentPageUrl() {
     // return window.location.href;
-    return 'https://mahendrabagul.github.io/knowmyminister/';
+    return this.sanitizer.bypassSecurityTrustResourceUrl('https://mahendrabagul.github.io/knowmyminister/');
   }
 
   getTwSharePageUrl() {
-    return "https://twitter.com/intent/tweet?text=I like this page";
+    return this.sanitizer.bypassSecurityTrustResourceUrl("https://twitter.com/intent/tweet?text=I like this page");
   }
 
   getFBSharePageUrl() {

@@ -20,7 +20,9 @@ video#bgvid {
   video {
     display: none;
   }
-  background-color: lavender
+  .container {
+    background-color:rgb(47, 47, 75)
+  }
 }
 
 .custom-hr {
