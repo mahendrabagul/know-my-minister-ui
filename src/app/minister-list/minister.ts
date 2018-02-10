@@ -6,10 +6,14 @@ export class Minister {
     fullName: string = '';
     brief: string = '';
     party: string = '';
-    twitterProfile: string = '';
-    facebookProfile: string = '';
-    instagramProfile: string = '';
-    website: string = '';
+    twitterUrl: string = '';
+    facebookUrl: string = '';
+    instagramUrl: string = '';
+    websiteUrl: string = '';
+    youtubeUrl: string = '';
+    linkedInUrl: string = '';
+    googlePlusUrl: string = '';
+    speechUrl: string = '';
     constructor(values: Object = {}) {
         Object.assign(this, values);
     }

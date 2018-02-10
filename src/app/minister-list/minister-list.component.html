@@ -27,56 +27,56 @@
       </div>
     </div>
   </div>
-
-  <hr style="height:3px;border:none;color:rgb(93, 93, 93);background-color:rgb(118, 119, 119);" />
-  <div class="col-sm-12" *ngIf='isResultEmpty()'>
-    <div class="container text-center">
-      <div class="container">No Minister found!!!</div>
-    </div>
-  </div>
-  <div class="row justify-content-center" *ngIf='!isResultEmpty()'>
-    <div class="card div-special" *ngFor="let minister of ministers | slice:0:9 " style="width: 20rem;">
-      <img class="card-img-top" src={{minister.profileUrl}} alt="Card image cap">
-      <div class="card-block div-special">
-        <h4 class="card-title">{{ minister.salutation}}. {{minister.fullName }}</h4>
-        <p class="card-text">{{minister.brief}}</p>
+  <hr class="custom-hr" />
+  <div style="background-color:rgb(199, 219, 219);">
+    <div class="col-lg-12" *ngIf='isResultEmpty()'>
+      <div class="container text-center">
+        <div class="container">No Minister found!!!</div>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item ">
-          <div class="row justify-content-center">
-            <img src={{minister.partyImageUrl}} />&nbsp; {{minister.party}}
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="row justify-content-center">
-            {{minister.born}}</div>
-        </li>
-      </ul>
-      <div class="card-block div-special">
-        <div class="row justify-content-center">
-          <a href={{minister.twitterProfile}} class="card-link">
-            <i class="fa fa-twitter-square social-icon"></i>
-          </a>
-          <a href={{minister.facebookProfile}} class="card-link">
-            <i class="fa fa-facebook-official social-icon"></i>
-          </a>
-          <a href={{minister.instagramProfile}} class="card-link">
-            <i class="fa fa-instagram social-icon"></i>
-          </a>
-          <a href={{minister.website}} class="card-link">
-            <i class="fa fa-internet-explorer social-icon"></i>
-          </a>
+    </div>
+    <div class="row justify-content-center" *ngIf='!isResultEmpty()'>
+      <div class="card div-special" *ngFor="let minister of ministers | slice:0:9 " style="width: 20rem;">
+        <img class="card-img-top" src={{minister.profileUrl}} alt="Card image cap">
+        <div class="card-block div-special">
+          <h4 class="card-title">{{ minister.salutation}}. {{minister.fullName }}</h4>
+          <p class="card-text">{{minister.brief}}</p>
         </div>
-        <div class="card-block">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item ">
+            <div class="row justify-content-center">
+              <img src={{minister.partyImageUrl}} />&nbsp; {{minister.party}}
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row justify-content-center">
+              {{minister.born}}</div>
+          </li>
+        </ul>
+        <div class="card-block div-special">
           <div class="row justify-content-center">
-            <a class="card-link" [routerLink]="['/minister-detail',minister.id]">
-              <u>View more</u>
+            <a href={{minister.twitterUrl}} class="card-link">
+              <i class="fa fa-twitter-square social-icon"></i>
+            </a>
+            <a href={{minister.facebookUrl}} class="card-link">
+              <i class="fa fa-facebook-official social-icon"></i>
+            </a>
+            <a href={{minister.instagramUrl}} class="card-link">
+              <i class="fa fa-instagram social-icon"></i>
+            </a>
+            <a href={{minister.websiteUrl}} class="card-link">
+              <i class="fa fa-internet-explorer social-icon"></i>
             </a>
           </div>
+          <div class="card-block">
+            <div class="row justify-content-center">
+              <a class="card-link" [routerLink]="['/minister-detail',minister.id]">
+                <u>View more</u>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <hr style="height:3px;border:none;color:rgb(93, 93, 93);background-color:rgb(118, 119, 119);" />
-
+  <hr class="custom-hr" />
 </div>

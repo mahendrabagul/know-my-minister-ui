@@ -1,0 +1,35 @@
+video#bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  /* background: url(polina.jpg) no-repeat; */
+  background-size: cover;
+  opacity: .6;
+}
+
+@media only screen and (max-width: 768px) {
+  video {
+    display: none;
+  }
+  background-color: lavender
+}
+
+.custom-hr {
+  height: 2px;
+  border: none;
+  color: rgb(93, 93, 93);
+  background-color: rgb(118, 119, 119);
+}
+
+.custom-space {
+  margin: 10px
+}

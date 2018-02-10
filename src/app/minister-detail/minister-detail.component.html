@@ -1,27 +1,83 @@
-<div class="outer-container" style="background-color: rgb(227, 242, 252)">
+<div class="outer-container">
+  <video playsinline autoplay muted loop poster="{{minister.profileUrl}}" id="bgvid">
+    <source [src]="videoUrl" type="video/mp4"> Your browser does not support HTML5 video.
+  </video>
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
-        <img src={{minister.profileUrl}}>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="container text-center text-white">
+          <img class="img-thumbnail" src={{minister.profileUrl}}>
+        </div>
       </div>
-      <div class="col-lg-8">
-        <h1 class="jumbotron-heading">{{minister.salutation}}. {{minister.fullName}}</h1>
-        <p class="lead text-muted">{{minister.brief}}</p>
-        <div class="row justify-content-center">
-          <a href={{minister.twitterProfile}} class="card-link">
+      <div class="col-lg-8 col-md-6 col-sm-12">
+        <div class="container text-center text-white">
+          <h1 class="jumbotron-heading">{{minister.salutation}}. {{minister.fullName}}</h1>
+          <blockquote>
+            {{minister.brief}}</blockquote>
+          <a href={{minister.twitterUrl}} class="card-link">
             <i class="fa fa-twitter-square social-icon fa-2x"></i>
           </a>
-          <a href={{minister.facebookProfile}} class="card-link">
+          <a href={{minister.facebookUrl}} class="card-link">
             <i class="fa fa-facebook-official social-icon fa-2x"></i>
           </a>
-          <a href={{minister.instagramProfile}} class="card-link">
+          <a href={{minister.instagramUrl}} class="card-link">
             <i class="fa fa-instagram social-icon fa-2x"></i>
           </a>
-          <a href={{minister.website}} class="card-link">
+          <a href={{minister.websiteUrl}} class="card-link">
             <i class="fa fa-internet-explorer social-icon fa-2x"></i>
           </a>
         </div>
       </div>
     </div>
+    <hr class="custom-hr" />
+  </div>
+  <div style="background-color:rgb(199, 219, 219);">
+    <div class="education">
+
+    </div>
+  </div>
+  <div class="container text-center">
+    <label style="vertical-align: middle;">Social Presence</label>
+    <hr class="custom-hr" />
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-8 col-sm-12">
+        <div class="container">
+          <div class="fb-page" [attr.data-href]="minister.facebookUrl" data-tabs="timeline" data-small-header="true" data-adapt-container-width="false"
+            data-hide-cover="true" data-show-facepile="true">
+            <blockquote [attr.cite]="minister.facebookUrl" class="fb-xfbml-parse-ignore">
+              <a [href]="minister.facebookUrl">{{minister.fullName}}</a>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12" style="margin-top: 10px">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-12 col-md-12 col-sm-12 custom-space">
+              <div class="fb-share-button" [attr.data-href]='getCurrentPageUrl()' data-layout="box_count" data-size="small" data-mobile-iframe="true">
+                <a target="_blank" [href]='getFBSharePageUrl()' class="fb-xfbml-parse-ignore">Share this page on Facebook</a>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 custom-space">
+              <div class="g-plus" data-action="share" data-annotation="bubble" data-height="50" data-href="https://mahendrabagul.github.io/knowmyminister"></div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 custom-space">
+              <a class="twitter-share-button" [href]='getTwSharePageUrl()' data-size="large">
+                Tweet</a>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 custom-space">
+              <iframe width="100%" height="100%" [src]="speechUrl">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12" style="margin-top: 10px">
+        <div class="container">
+          <a class="twitter-timeline" data-width="420" data-height="500" data-dnt="true" [href]="minister.twitterUrl">{{minister.fullName}}</a>
+        </div>
+      </div>
+    </div>
+    <hr class="custom-hr" />
   </div>
 </div>
