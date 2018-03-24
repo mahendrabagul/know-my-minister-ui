@@ -24,8 +24,8 @@ export class MinisterDetailComponent implements OnInit {
       || passedValue === null;
   }
 
-  getSpeechUrl() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.minister.speechUrl);
+  getSanitizedUrl(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   ngOnInit() {
@@ -43,7 +43,7 @@ export class MinisterDetailComponent implements OnInit {
 
   getFBSharePageUrl() {
     return this.sanitizer.bypassSecurityTrustResourceUrl("https://www.facebook.com/sharer/sharer.php?u="
-      + window.location.href + "&amp;src=sdkpreparse");
+      + window.location.href + "&src=sdkpreparse");
   }
 
   loadMinisterDetails() {

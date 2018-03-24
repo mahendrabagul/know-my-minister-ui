@@ -58,7 +58,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 custom-space">
               <div class="fb-share-button" [attr.data-href]='getCurrentPageUrl()' data-layout="box_count" data-size="small" data-mobile-iframe="true">
                 <div class="container">
-                  <a target="_blank" [href]='getFBSharePageUrl()' class="fb-xfbml-parse-ignore">Share this page on Facebook</a>
+                  <a target="_blank" [href]='getFBSharePageUrl()' class="fb-xfbml-parse-ignore">Share</a>
                 </div>
               </div>
             </div>
@@ -70,7 +70,8 @@
                 Tweet</a>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 custom-space">
-              <iframe *ngIf="isValueEmpty(getSpeechUrl())" width="100%" height="100%" frameborder="0" allowfullscreen [src]='getSpeechUrl()'>
+              <iframe *ngIf="!isValueEmpty(minister.speechUrl)" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen
+                allowfullscreen [src]='getSanitizedUrl(minister.speechUrl)'>
               </iframe>
             </div>
           </div>
@@ -78,7 +79,8 @@
       </div>
       <div class="col-lg-4 col-md-12 col-sm-12" style="margin-top: 10px">
         <div class="container">
-          <a class="twitter-timeline" data-width="420" data-height="490" data-dnt="true" [href]="minister.twitterUrl">{{minister.fullName}}</a>
+          <a *ngIf="!isValueEmpty(minister.twitterUrl)" class="twitter-timeline" data-width="420" data-height="490" data-dnt="true"
+            [href]="minister.twitterUrl">{{minister.fullName}}</a>
         </div>
       </div>
     </div>
