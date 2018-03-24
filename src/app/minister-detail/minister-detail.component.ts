@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { MinisterDetailService } from './minister-detail.service';
 import { Minister } from '../minister-list/minister';
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser'
+import { environment } from '../../environments/environment';
+const API_URL = environment.apiUrl;
 
 @Component({
   selector: 'app-minister-detail',
@@ -12,26 +14,28 @@ import { BrowserModule, DomSanitizer } from '@angular/platform-browser'
 export class MinisterDetailComponent implements OnInit {
   id: number;
   minister: Minister = new Minister();
-  videoUrl: string = "http://localhost:1337/assets/videos/indian.mp4";
+  videoUrl: string = API_URL + "/api/v1/assets/videos/indian.mp4";
   //speechUrl: string = "http://www.youtube.com/embed/8Z72UenFOrA?autoplay=1";
 
   constructor(private sanitizer: DomSanitizer, private ministerDetailService: MinisterDetailService, private activatedRoute: ActivatedRoute) { }
+
   isValueEmpty(passedValue) {
     return passedValue === undefined
       || passedValue === ""
       || passedValue === null;
   }
+
   getSpeechUrl() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.minister.speechUrl);
   }
+
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.loadMinisterDetails();
   }
 
   getCurrentPageUrl() {
-    // return window.location.href;
-    return this.sanitizer.bypassSecurityTrustResourceUrl('https://mahendrabagul.github.io/knowmyminister/');
+    return window.location.href;
   }
 
   getTwSharePageUrl() {
