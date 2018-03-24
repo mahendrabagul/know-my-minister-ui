@@ -12,13 +12,17 @@ import { BrowserModule, DomSanitizer } from '@angular/platform-browser'
 export class MinisterDetailComponent implements OnInit {
   id: number;
   minister: Minister = new Minister();
-  videoUrl: string = "http://52.27.171.29:3030/assets/videos/indian.mp4";
-  speechUrl: string = "http://www.youtube.com/embed/8Z72UenFOrA?autoplay=1";
+  videoUrl: string = "http://localhost:1337/assets/videos/indian.mp4";
+  //speechUrl: string = "http://www.youtube.com/embed/8Z72UenFOrA?autoplay=1";
 
   constructor(private sanitizer: DomSanitizer, private ministerDetailService: MinisterDetailService, private activatedRoute: ActivatedRoute) { }
-
+  isValueEmpty(passedValue) {
+    return passedValue === undefined
+      || passedValue === ""
+      || passedValue === null;
+  }
   getSpeechUrl() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.speechUrl);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.minister.speechUrl);
   }
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];

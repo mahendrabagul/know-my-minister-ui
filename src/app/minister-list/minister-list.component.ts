@@ -30,7 +30,11 @@ export class MinisterListComponent implements OnInit {
       }
     );
   }
-
+  isValueEmpty(passedValue) {
+    return passedValue === undefined 
+    || passedValue === "" 
+    || passedValue === null;
+  }
   isResultEmpty() {
     return this.ministers && this.ministers.length < 1
   }

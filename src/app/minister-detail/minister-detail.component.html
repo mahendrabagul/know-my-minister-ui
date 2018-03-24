@@ -14,16 +14,16 @@
           <h1 class="jumbotron-heading">{{minister.salutation}}. {{minister.fullName}}</h1>
           <blockquote>
             {{minister.brief}}</blockquote>
-          <a href={{minister.twitterUrl}} class="card-link">
+          <a [hidden]="isValueEmpty(minister.twitterUrl)" href={{minister.twitterUrl}} class="card-link">
             <i class="fa fa-twitter-square social-icon fa-2x"></i>
           </a>
-          <a href={{minister.facebookUrl}} class="card-link">
+          <a [hidden]="isValueEmpty(minister.facebookUrl)" href={{minister.facebookUrl}} class="card-link">
             <i class="fa fa-facebook-official social-icon fa-2x"></i>
           </a>
-          <a href={{minister.instagramUrl}} class="card-link">
+          <a [hidden]="isValueEmpty(minister.instagramUrl)" href={{minister.instagramUrl}} class="card-link">
             <i class="fa fa-instagram social-icon fa-2x"></i>
           </a>
-          <a href={{minister.websiteUrl}} class="card-link">
+          <a [hidden]="isValueEmpty(minister.websiteUrl)" href={{minister.websiteUrl}} class="card-link">
             <i class="fa fa-internet-explorer social-icon fa-2x"></i>
           </a>
         </div>
@@ -70,7 +70,7 @@
                 Tweet</a>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 custom-space">
-              <iframe width="100%" height="100%" [src]='getSpeechUrl()'>
+              <iframe *ngIf="isValueEmpty(getSpeechUrl())" width="100%" height="100%" [src]='getSpeechUrl()'>
               </iframe>
             </div>
           </div>

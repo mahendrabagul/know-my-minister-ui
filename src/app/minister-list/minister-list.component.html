@@ -54,16 +54,16 @@
         </ul>
         <div class="card-block div-special">
           <div class="row justify-content-center">
-            <a href={{minister.twitterUrl}} class="card-link">
+            <a [hidden]="isValueEmpty(minister.twitterUrl)" href={{minister.twitterUrl}} class="card-link">
               <i class="fa fa-twitter-square social-icon"></i>
             </a>
-            <a href={{minister.facebookUrl}} class="card-link">
+            <a [hidden]="isValueEmpty(minister.facebookUrl)" href={{minister.facebookUrl}} class="card-link">
               <i class="fa fa-facebook-official social-icon"></i>
             </a>
-            <a href={{minister.instagramUrl}} class="card-link">
+            <a [hidden]="isValueEmpty(minister.instagramUrl)" href={{minister.instagramUrl}} class="card-link">
               <i class="fa fa-instagram social-icon"></i>
             </a>
-            <a href={{minister.websiteUrl}} class="card-link">
+            <a [hidden]="isValueEmpty(minister.websiteUrl)" href={{minister.websiteUrl}} class="card-link">
               <i class="fa fa-internet-explorer social-icon"></i>
             </a>
           </div>
