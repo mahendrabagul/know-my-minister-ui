@@ -16,8 +16,8 @@ const API_URL = environment.apiUrl;
 @Injectable()
 export class ApiService {
   queryUrl: string = '?q=';
-  ministerUrl: string = '/api/v1/minister';
-  navbarUrl: string = '/api/v1/navbar';
+  ministerUrl: string = '/minister';
+  navbarUrl: string = '/navbar';
   constructor(private httpClient: HttpClient) { }
   searchMinisters(terms: Observable<string>) {
     return terms.debounceTime(400)

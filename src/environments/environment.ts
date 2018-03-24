@@ -5,5 +5,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://knowmyminister.com'
+  // apiUrl: 'http://localhost:3030'
+  apiUrl: 'https://knowmyminister.com/api/v1',
+  staticAssetsUrl: 'https://knowmyminister.com'
 };

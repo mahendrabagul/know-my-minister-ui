@@ -4,7 +4,7 @@ import { MinisterDetailService } from './minister-detail.service';
 import { Minister } from '../minister-list/minister';
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser'
 import { environment } from '../../environments/environment';
-const API_URL = environment.apiUrl;
+const STATIC_ASSETS_URL = environment.staticAssetsUrl;
 
 @Component({
   selector: 'app-minister-detail',
@@ -14,8 +14,7 @@ const API_URL = environment.apiUrl;
 export class MinisterDetailComponent implements OnInit {
   id: number;
   minister: Minister = new Minister();
-  videoUrl: string = API_URL + "/api/v1/assets/videos/indian.mp4";
-  //speechUrl: string = "http://www.youtube.com/embed/8Z72UenFOrA?autoplay=1";
+  videoUrl: string = STATIC_ASSETS_URL + "/videos/indian.mp4";
 
   constructor(private sanitizer: DomSanitizer, private ministerDetailService: MinisterDetailService, private activatedRoute: ActivatedRoute) { }
 
@@ -35,7 +34,7 @@ export class MinisterDetailComponent implements OnInit {
   }
 
   getCurrentPageUrl() {
-    return window.location.href;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(window.location.href);
   }
 
   getTwSharePageUrl() {
@@ -43,7 +42,8 @@ export class MinisterDetailComponent implements OnInit {
   }
 
   getFBSharePageUrl() {
-    return "https://www.facebook.com/sharer/sharer.php?u=" + this.getCurrentPageUrl() + "&amp;src=sdkpreparse";
+    return this.sanitizer.bypassSecurityTrustResourceUrl("https://www.facebook.com/sharer/sharer.php?u="
+      + window.location.href + "&amp;src=sdkpreparse");
   }
 
   loadMinisterDetails() {
