@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:1337'
+  apiUrl: 'https://knowmyminister.com/api/v1',
+  staticAssetsUrl: 'https://knowmyminister.com'
 };

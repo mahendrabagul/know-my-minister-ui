@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { MinisterDetailService } from './minister-detail.service';
 import { Minister } from '../minister-list/minister';
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser'
+import { environment } from '../../environments/environment';
+import { Location } from '@angular/common';
+const STATIC_ASSETS_URL = environment.staticAssetsUrl;
 
 @Component({
   selector: 'app-minister-detail',
@@ -12,34 +15,47 @@ import { BrowserModule, DomSanitizer } from '@angular/platform-browser'
 export class MinisterDetailComponent implements OnInit {
   id: number;
   minister: Minister = new Minister();
-  videoUrl: string = "http://localhost:1337/assets/videos/indian.mp4";
-  //speechUrl: string = "http://www.youtube.com/embed/8Z72UenFOrA?autoplay=1";
+  videoUrl: string = STATIC_ASSETS_URL + "/videos/indian.mp4";
+  currentPath: string = '';
+  constructor(private sanitizer: DomSanitizer, private ministerDetailService: MinisterDetailService, private activatedRoute: ActivatedRoute, location: Location) {
+    this.currentPath = location.prepareExternalUrl(location.path());
+  }
 
-  constructor(private sanitizer: DomSanitizer, private ministerDetailService: MinisterDetailService, private activatedRoute: ActivatedRoute) { }
   isValueEmpty(passedValue) {
     return passedValue === undefined
       || passedValue === ""
       || passedValue === null;
   }
-  getSpeechUrl() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.minister.speechUrl);
+
+  getSanitizedUrl(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url.trim());
   }
+
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.loadMinisterDetails();
   }
-
+  getMinisterFBProfile(ministerFBUrl) {
+    return this.getSanitizedUrl("https://www.facebook.com/plugins/page.php?href=" + ministerFBUrl + "&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId");
+  }
   getCurrentPageUrl() {
-    // return window.location.href;
-    return this.sanitizer.bypassSecurityTrustResourceUrl('https://mahendrabagul.github.io/knowmyminister/');
+    return this.getSanitizedUrl(this.currentPath);
   }
 
   getTwSharePageUrl() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl("https://twitter.com/intent/tweet?text=I like this page");
+    return this.getSanitizedUrl("https://twitter.com/share?url=" + this.currentPath);
   }
 
   getFBSharePageUrl() {
-    return "https://www.facebook.com/sharer/sharer.php?u=" + this.getCurrentPageUrl() + "&amp;src=sdkpreparse";
+    return this.getSanitizedUrl("https://www.facebook.com/sharer.php?u=" + this.currentPath);
+  }
+
+  getGPSharePageUrl() {
+    return this.getSanitizedUrl("https://plus.google.com/share?url=" + this.currentPath);
+  }
+
+  getMinisterTWProfile(ministerTWUrl) {
+    return this.getSanitizedUrl(ministerTWUrl);
   }
 
   loadMinisterDetails() {

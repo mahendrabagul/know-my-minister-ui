@@ -23,13 +23,13 @@ const routes: Routes = [
         }
       },
       {
-        path: ':id',
+        path: ':id/:fullName',
         redirectTo: 'minister-detail'
       }
     ]
   },
   {
-    path: 'minister-detail/:id',
+    path: 'minister-detail/:id/:fullName',
     component: MinisterDetailComponent,
   },
   {

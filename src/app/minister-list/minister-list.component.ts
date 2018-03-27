@@ -31,9 +31,9 @@ export class MinisterListComponent implements OnInit {
     );
   }
   isValueEmpty(passedValue) {
-    return passedValue === undefined 
-    || passedValue === "" 
-    || passedValue === null;
+    return passedValue === undefined
+      || passedValue === ""
+      || passedValue === null;
   }
   isResultEmpty() {
     return this.ministers && this.ministers.length < 1
@@ -45,7 +45,7 @@ export class MinisterListComponent implements OnInit {
       this.buttonShowLocations = "Clear My Location Results";
     }
     else {
-      this.ministers = [];
+      // this.ministers = [];
       this.buttonShowLocations = "Get Ministers by my Location";
     }
   }

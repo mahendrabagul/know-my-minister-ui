@@ -9,9 +9,10 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <!-- <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" /> -->
   <meta name="theme-color" content="#999999" />
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFp3oUKAoJqtUOOTstdzG1u-2sReL2hOE" async defer></script>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFp3oUKAoJqtUOOTstdzG1u-2sReL2hOE"></script>
+  <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body class="div-spacing">
@@ -22,7 +23,7 @@
       if (d.getElementById(id)) return;
       js = d.createElement(s);
       js.id = id;
-      js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12';
+      js.src = '//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.12';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
@@ -31,14 +32,12 @@
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
         pageLanguage: 'en',
-        includedLanguages: 'bn,gu,hi,mr,ne,ta,te,ur',
-        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+        includedLanguages: 'en,gu,hi,kn,mr,ne,pa,sd,ta,te',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
     }
 
   </script>
-
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <app-root></app-root>
 </body>
 
